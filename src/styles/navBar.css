@@ -1,0 +1,46 @@
+@import './global.css';
+
+.nav-bar {
+    height: 20%;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--red);
+    border-bottom: 5px solid var(--black);
+    border-radius: 0 0 30px 30px;
+}
+
+.navbar-logo-container {
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.anchors {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: .7rem;
+    text-align: center;
+}
+
+.links {
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: transform 0.2s;
+}
+
+.links:hover {
+    transform: scale(1.2);
+}
+
+.logout-btn {
+    border: none;
+    background-color: transparent;
+}
