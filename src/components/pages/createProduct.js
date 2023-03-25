@@ -1,7 +1,7 @@
 import { Button, FormControl, FormControlLabel, FormGroup, FormLabel, Input, Radio, RadioGroup } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from "react-router-dom";
-import NavBar from '../navBar';
+import NavBar from '../../styles/navBar.css';
 
 
 export default function CreateProduct() {
@@ -24,7 +24,6 @@ export default function CreateProduct() {
     const fetchData = async () => {
       const response = await fetch("http://localhost:8080/product/" + id)
       const body = await response.json();
-      console.log("meuproduto", body)
       setProduct(body)
     }
     if(id !== "new"){

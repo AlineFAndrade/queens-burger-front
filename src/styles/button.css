@@ -1,0 +1,64 @@
+@import './global.css';
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: inherit;
+  width: 12em;
+  padding: 0.4em 2em;
+  margin-top: 1em;
+  cursor: pointer;
+  border-radius: 100px;
+  border: none;
+}
+
+
+.button-primary,
+.button-hall {
+  border: 2px solid var(--red);
+  color: var(--red);
+  background-color: var(--white);
+  background-image: linear-gradient(to right, transparent 50%, #C64040 50%);
+  background-size: 210%;
+  transition: .5s ease-out;
+}
+
+.button-primary:hover {
+background-position: 100%;
+color: var(--white);
+}
+
+.button-hall:hover {
+  background-position: 100%;
+  color: var(--white);
+}
+
+.menu-button{
+  min-width: 12em;
+}
+
+.confirm-order {
+  color: var(--white);
+  background-color: var(--green);
+  transition: all 0.2s;
+}
+
+.confirm-order:hover {
+  background-color: rgb(32, 175, 111);
+}
+
+.cancel-order {
+  color: var(--black);
+  border: 2px solid var(--black);
+  background-color: transparent;
+  padding: 6px 35px;
+  transition: all 0.2s;
+}
+
+.cancel-order:hover {   
+  color: #000000;
+  border-color: #000000;
+}   

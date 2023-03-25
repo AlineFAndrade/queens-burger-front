@@ -1,6 +1,6 @@
-import reducedLogo from "../images/reducedLogo.svg"
-import exit from "../images/exit.svg"
-import "../styles/navBar.css"
+import reducedLogo from "../../images/reducedLogo.svg"
+import exit from "../../images/exit.svg"
+import "../../styles/navBar.css"
 import { MenuItem, Toolbar } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 
@@ -17,13 +17,13 @@ export default function NavBar() {
       </div>
       <div className="anchors">
         <MenuItem className="links">
-          <NavLink tag={Link} to="/">Home</NavLink>
+          <NavLink tag={Link} to="/home">Home</NavLink>
         </MenuItem>
         <MenuItem className="links">
           <NavLink tag={Link} to="/product">Produtos</NavLink>
         </MenuItem>
         <MenuItem className="links">
-          <NavLink tag={Link} to="/login">Login</NavLink>
+          <NavLink tag={Link} to="/">Login</NavLink>
         </MenuItem>
       </div>
       <div className="navbar-logo-container">

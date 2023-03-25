@@ -1,4 +1,4 @@
-import NavBar from "../navBar";
+import NavBar from "../components/navBar";
 import { useState, useEffect } from "react";
 import { Button, ButtonGroup, Table } from '@mui/material';
 import { Link } from "react-router-dom";

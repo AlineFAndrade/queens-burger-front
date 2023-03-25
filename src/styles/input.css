@@ -1,0 +1,31 @@
+@import './global.css';
+
+input {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: inherit;
+  width: 12em;
+  padding: 0.4em 2em;
+  margin: 1rem 3rem;
+  cursor: pointer;
+  border-radius: 100px;
+  border: 2px solid var(--black);
+}
+
+
+/* .input-primary{
+  border: 2px solid var(--light);
+  color: var(--red);
+  background-color: var(--white);
+  background-image: linear-gradient(to right, transparent 50%, #C64040 50%);
+  background-size: 210%;
+  transition: .5s ease-out;
+}
+
+.input-primary:hover {
+background-position: 100%;
+color: var(--white);
+} */
