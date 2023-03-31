@@ -1,10 +1,11 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import HomePage from './components/pages/home';
-import Products from './components/pages/products';
-import Login from './components/pages/login/login';
-import Register from "./components/pages/register/register";
-import CreateProduct from './components/pages/createProduct';
+import HomePage from "./pages/home";
+import Products from "./pages/products/products";
+import Login from "./pages/login/login";
+import Register from "./pages/register/register";
+import CreateProduct from "./pages/createProduct";
+import Order from './pages/order/order';
 
 export default function App() {
   return (
@@ -12,9 +13,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<HomePage/>}/>
-        <Route path="/product" element={<Products/>} />
-        <Route path="/product/:id" element={<CreateProduct/>} />
+        <Route path="/home" element={<HomePage />}/>
+        <Route path="/order" element={<Order />} />
+        <Route path="/product" element={<Products />} />
+        <Route path="/product/:id" element={<CreateProduct />} />
       </Routes>
     </div>
   );

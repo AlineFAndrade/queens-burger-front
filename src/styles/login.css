@@ -1,4 +1,4 @@
-@import './global.css';
+@import "./global.css";
 
 .loginPage {
   background: var(--red);
@@ -16,6 +16,13 @@
   justify-content: center;
 }
 
+.main__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 32rem;
+  gap: 2rem;
+}
+
 .text {
   font-size: 1.8rem;
   font-weight: 700;
@@ -31,8 +38,12 @@
   justify-content: space-evenly;
   padding: 10px;
   margin: 2em;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: var(--red);
   min-height: 23px;
   position: relative;
+}
+
+.form__input {
+  color: var(--red);
 }

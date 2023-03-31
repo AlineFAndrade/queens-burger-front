@@ -1,34 +1,14 @@
-import NavBar from "../components/navBar";
-import { useState, useEffect } from "react";
-import { Button, ButtonGroup, Table } from '@mui/material';
+import { Button, ButtonGroup, Modal, Table } from '@mui/material';
 import { Link } from "react-router-dom";
+import NavBar from "../../components/navBar";
+import UseForm from "./useForm";
 
 export default function Products() {
 
-  const [listProducts, setListProducts] = useState([]);
-
-  async function fetchData() {
-    const response = await fetch("http://localhost:8080/product");
-    const body = await response.json();
-    setListProducts(body);
-  }
-
-  useEffect(() => {
-    fetchData();
-  },[]);
-
-  async function handleDelete(id) {
-    await fetch("http://localhost:8080/product/" + id,
-      {
-        method: "DELETE",
-      }
-    );
-    console.log("cheguei no delete")
-    fetchData();
-  }
+  const { productList, handleChange, values, onClickDelete, toggleModal, fetchData, handleDelete, showModalDel } = UseForm();
 
   return (
-    <>
+    <div className="bg-zinc-900 w-full h-screen flex flex-col justify-center items-center p-8">
       <NavBar />
       <div>
         <h1>Produtos</h1>
@@ -46,7 +26,7 @@ export default function Products() {
         </thead>
         <tbody>
           {
-            listProducts.map((product) =>
+            productList.map((product) =>
               <tr>
                 <td>{product.name}</td>
                 <td>{product.flavor}</td>
@@ -56,14 +36,23 @@ export default function Products() {
 
                 <ButtonGroup>
                   <Button tag={Link} href={"/product/" + product.id}>Editar</Button>
-                  <Button onClick={() => handleDelete(product.id)}>Remover</Button>
+                  <Button onClick={() => onClickDelete(product.id)}>Remover</Button>
                 </ButtonGroup>
               </tr>
             )
           }
         </tbody>
       </Table>
-    </>
-
+      <Modal isOpen={showModalDel} toggle={toggleModal}>
+        <div toggle={toggleModal}>Exclusão de cliente</div>
+        <div>
+          Tem certeza que deseja excluir o cliente ID {handleChange()}?
+        </div>
+        <div>
+          <Button color="primary" onClick={() => handleDelete(handleChange())}>Sim</Button>
+          <Button color="secondary" onClick={toggleModal}>Não</Button>
+        </div>
+      </Modal>
+    </div>
   )
 }

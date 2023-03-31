@@ -10,9 +10,9 @@ export const registerUser = (userBody) => {
   })
 }
 export const loginWithUserPassword = (email, password) => {
-  console.log(email, password)
+
   return fetch("http://localhost:8080/auth", {
-    method: "POST", 
+    method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
@@ -22,3 +22,23 @@ export const loginWithUserPassword = (email, password) => {
     })
   })
 }
+
+export const getAllProducts = () => {
+  const response = fetch("http://localhost:8080/product");
+  const productList = response.json();
+  return productList;
+}
+
+// export const createOrder = (order) => {
+//   return fetch("http://localhost:8080/order", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//
+//     })
+//   })
+// }
+
+

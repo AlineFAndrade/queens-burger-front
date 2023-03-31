@@ -1,8 +1,7 @@
-import { Button, FormControl, FormControlLabel, FormGroup, FormLabel, Input, Radio, RadioGroup } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Button, FormControl, FormControlLabel, FormGroup, FormLabel, Input, Radio, RadioGroup } from "@mui/material";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import NavBar from '../../styles/navBar.css';
-
+import NavBar from "../components/navBar"
 
 export default function CreateProduct() {
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { loginWithUserPassword } from "../../services/dataService.js"
+import { loginWithUserPassword } from "../../service/dataService"
 import { useNavigate } from "react-router-dom";
 
-const useForm = () => {
+const UseForm = () => {
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -42,4 +42,4 @@ const useForm = () => {
   return { handleChange, values, handleSubmit }
 }
 
-export default useForm;
+export default UseForm;

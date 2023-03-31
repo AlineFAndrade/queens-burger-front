@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
-import { registerUser } from "../../../service/dataService";
+import { registerUser } from "../../service/dataService";
 
-const useForm = () => {
+const UseForm = () => {
 
   const navigate = useNavigate()
 
@@ -31,4 +31,4 @@ const useForm = () => {
   return { handleChange, userBody, handleSubmit }
 }
 
-export default useForm;
+export default UseForm;
