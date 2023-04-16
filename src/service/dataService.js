@@ -9,24 +9,24 @@ export const registerUser = (userBody) => {
     body: JSON.stringify(userBody)
   })
 }
-export const loginWithUserPassword = (email, password) => {
 
-  return fetch("http://localhost:8080/auth", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      "email": email,
-      "password": password
-    })
-  })
+export const getAllProducts = async () => {
+  try{
+  const response = await fetch("http://localhost:8080/api/product", {credentials: 'include'});
+  const productList =  await response.json();
+  return productList;
+  } catch(e){
+    console.log(e)
+  }
 }
 
-export const getAllProducts = () => {
-  const response = fetch("http://localhost:8080/product");
-  const productList = response.json();
-  return productList;
+export const deleteProduct = (values) => {
+
+   fetch("http://localhost:8080/product/" + values.id,
+      {
+        method: "DELETE",
+      }
+    );
 }
 
 // export const createOrder = (order) => {

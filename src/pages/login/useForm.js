@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { loginWithUserPassword } from "../../service/dataService"
+import AuthService from "../../service/authService"
 import { useNavigate } from "react-router-dom";
 
 const UseForm = () => {
@@ -10,25 +10,21 @@ const UseForm = () => {
     password: '',
   })
 
-  function navigateToHall() {
-    navigate.push('/hall');
-  }
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    loginWithUserPassword(values.email, values.password)
-      .then(res => res.json())
+    AuthService.login(values.username, values.password)
       .then((json) => {
-        const token = json.token
         const id = json.id
 
-        if (token !== null && id !== null) {
-          navigateToHall()
+        if (id !== null) {
+          navigate("/order")
         } else {
           alert('Não cadastrado!')
         }
       })
+      
   }
 
   const handleChange = e => {
