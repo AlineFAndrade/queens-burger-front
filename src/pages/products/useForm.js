@@ -1,27 +1,17 @@
 import { useState, useEffect } from "react";
-import { getAllProducts, handleDelete } from "../../service/dataService"
+import { deleteProduct, getAllProducts, handleDelete } from "../../service/dataService"
 
 const useForm = () => {
 
-  let allProducts = [];
-
-  const productList = () => {
-    getAllProducts().then((result) => {
-      result.json().then((data) => {
-        allProducts = data
-      })
-    })
-    return allProducts
-  }
-
-
-  const [values, setValues] = useState({
-    id: "",
-
-  })
   const [listProducts, setListProducts] = useState([]);
   const [showModalDel, setShowModalDel] = useState(false);
   const [idProduct, setIdProduct] = useState();
+
+  useEffect(() => {
+    const response = getAllProducts();
+       const listProducts = response.json();
+       setListProducts(listProducts)
+   }, []);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -30,35 +20,27 @@ const useForm = () => {
       [name]: value
     })
   }
+
+  const [values, setValues] = useState({
+    id: "",
+  })
+
   const onClickDelete = (id) => {
     setShowModalDel(true);
     setIdProduct(id)
+  }
+
+  async function handleDelete(idProduct) {
+    deleteProduct(idProduct)
+    getAllProducts()
+    toggleModal()
   }
 
   const toggleModal = () => {
     setShowModalDel(false)
     setIdProduct("")
   }
-  async function fetchData() {
-    const response = await fetch("http://localhost:8080/product");
-    const body = await response.json();
-    setListProducts(body);
-  }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  async function handleDelete(id) {
-    await fetch("http://localhost:8080/product/" + values.id,
-      {
-        method: "DELETE",
-      }
-    );
-    fetchData()
-    toggleModal()
-  }
-
-  return { productList, handleChange, values, onClickDelete, toggleModal, fetchData, handleDelete, showModalDel }
+  return {  handleChange, values, onClickDelete, toggleModal, handleDelete, showModalDel, listProducts }
 }
 export default useForm;

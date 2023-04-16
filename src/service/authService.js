@@ -17,6 +17,7 @@ const login = async (username, password) => {
   if(response.ok) {
     const userInfo = await response.json();
     localStorage.setItem("logUserApp", JSON.stringify(userInfo));
+    return response
   } else {
     const msgError = await response.text()
     throw new Error(msgError)

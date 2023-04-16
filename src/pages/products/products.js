@@ -5,7 +5,7 @@ import UseForm from "./useForm";
 
 export default function Products() {
 
-  const { productList, handleChange, values, onClickDelete, toggleModal, fetchData, handleDelete, showModalDel } = UseForm();
+  const { listProducts, handleChange, onClickDelete, toggleModal, handleDelete, showModalDel } = UseForm();
 
   return (
     <div className="bg-zinc-900 w-full h-screen flex flex-col justify-center items-center p-8">
@@ -26,7 +26,7 @@ export default function Products() {
         </thead>
         <tbody>
           {
-            productList.map((product) =>
+            listProducts.map((product) =>
               <tr>
                 <td>{product.name}</td>
                 <td>{product.flavor}</td>

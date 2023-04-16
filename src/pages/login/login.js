@@ -15,15 +15,17 @@ export default function Login() {
       <div className="flex flex-col gap-5 justify-center items-center w-full max-w-sm">
         <InputWithIcon
           type="email"
-          placeholder="Insira seu e-mail"
-          label="E-mail"
+          placeholder="Insira seu nome de usuário"
+          label="Username"
           onChange={handleChange}
+          name="username"
         />
         <InputWithIcon
           type="password"
           placeholder="Insira sua senha"
           label="Senha"
           onChange={handleChange}
+          name="password"
         />
         <Button
           buttonText="Login"
